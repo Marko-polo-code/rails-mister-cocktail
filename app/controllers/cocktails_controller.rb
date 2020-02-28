@@ -1,6 +1,13 @@
 class CocktailsController < ApplicationController
   def index
-    @cocktails = Cocktail.all
+      if params[:search]
+        @cocktails = Cocktail.where("name ILIKE ?", "%#{params[:search][:query]}%")
+        if @cocktails.empty?
+          @message = "Sorry we don`t have any #{params[:search][:query]}"
+        end
+      else
+        @cocktails = Cocktail.all
+      end
   end
 
   def show
@@ -20,11 +27,10 @@ class CocktailsController < ApplicationController
     end
   end
 
-  def search
-    query = params[:search][:query]
-    @cocktail = Cocktail.find_by("name ILIKE ?", "%#{query}%")
-    redirect_to cocktail_path(@cocktail.id)
-  end
+  # def search
+
+  #   redirect_to cocktail_path(@cocktail.id)
+  # end
 
   private
 
