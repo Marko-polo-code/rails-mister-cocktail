@@ -1,7 +1,20 @@
+<div class="container">
+
 <h1>Le Cercle</h1>
 
 <h2>Cocktails</h2>
 
-<% @cocktails.each do |cocktail| %>
-  <h2><%= link_to cocktail.name, cocktail_path(cocktail) %></h2>
-<% end %>
+<%= video_tag "https://video.wixstatic.com/video/a29a2a_b97f5f0d255d43f4b02efe8407ed75d2/720p/mp4/file.mp4", controls: false, autoplay: true, width: 200, height: 200 %>
+
+<div class="cards">
+  <% @cocktails.each do |cocktail| %>
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+      <h2><%= link_to cocktail.name, cocktail_path(cocktail) %></h2>
+    </div>
+  <% end %>
+</div>
+
+<%= link_to "Add a cocktail", new_cocktail_path, class: 'btn btn-primary' %>
+
+</div>
+
