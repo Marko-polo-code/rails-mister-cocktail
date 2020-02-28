@@ -20,6 +20,12 @@ class CocktailsController < ApplicationController
     end
   end
 
+  def search
+    query = params[:search][:query]
+    @cocktail = Cocktail.find_by("name ILIKE ?", "%#{query}%")
+    redirect_to cocktail_path(@cocktail.id)
+  end
+
   private
 
   def cocktail_params

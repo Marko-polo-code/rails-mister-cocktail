@@ -1,12 +1,21 @@
 <div class="container">
 
-<h1>Le Cercle</h1>
+<div class="card-product my-5">
+  <div class="video">
+  <%= video_tag loop="" "https://video.wixstatic.com/video/827c6d_c052fb7f414a4640bd4582501c938dab/720p/mp4/file.mp4", controls: false, autoplay: true, width: 400, height: 400 %>
+  </div>
+  <div class="card-product-infos">
+    <h2>Our cocktails</h2>
+    <p>Le cercle has a selection of unique crafted drinks <strong>made with luve</strong> only.</p>
+    <p>You may want a <strong>taxi</strong> home!</p>
+  </div>
+</div>
 
-<h2>Cocktails</h2>
 
-<%= video_tag "https://video.wixstatic.com/video/a29a2a_b97f5f0d255d43f4b02efe8407ed75d2/720p/mp4/file.mp4", controls: false, autoplay: true, width: 200, height: 200 %>
 
-<div class="cards">
+<h2>Your cocktails</h2>
+
+<div class="cards my-5">
   <% @cocktails.each do |cocktail| %>
     <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
       <h2><%= link_to cocktail.name, cocktail_path(cocktail) %></h2>
@@ -14,7 +23,8 @@
   <% end %>
 </div>
 
+<div class="button my-5">
 <%= link_to "Add a cocktail", new_cocktail_path, class: 'btn btn-primary' %>
-
 </div>
 
+</div>
