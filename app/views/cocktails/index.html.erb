@@ -7,9 +7,9 @@
   <%= video_tag "https://video.wixstatic.com/video/827c6d_c052fb7f414a4640bd4582501c938dab/720p/mp4/file.mp4", controls: false, autoplay: true, width: 400, height: 400, loop: true %>
   </div>
   <div class="card-product-infos">
-    <h2>Our cocktails</h2>
-    <p>Le cercle has a selection of unique crafted drinks <strong>made with luve</strong>.</p>
-    <p>You may want a <strong>taxi</strong> home!</p>
+    <h2>Caution</h2>
+    <p>Le cercle has a selection of unique crafted drinks <strong>made with luve</strong> but also very strong.</p>
+    <p>You may want to get a <strong>taxi</strong> home!</p>
   </div>
 </div>
 
@@ -21,7 +21,7 @@
 <% end %>
 <div class="cards my-5">
   <% @cocktails.each do |cocktail| %>
-    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path cocktail.photo.key, height: 300, width: 400, crop: :fill %>')">
       <h2><%= link_to cocktail.name, cocktail_path(cocktail) %></h2>
     </div>
   <% end %>
